@@ -1,0 +1,7 @@
+name: WelcomeBook
+main: com.github.jwolff52.welcomebook.WelcomeBook
+version: 1.2
+commands:
+    welcomebook:
+        description: Gives the player a copy of the WelcomeBook
+        permission-message: You don't have permission to use WelcomeBook

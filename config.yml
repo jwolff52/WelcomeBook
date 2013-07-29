@@ -1,0 +1,6 @@
+# Default Configuration File for WelcomeBook, color-codes are supported
+book_title: 'Welcome to the Server!'
+book_author: 'jwolff52'
+new_line_identifier: '%'
+p1: These are the pages that will be put in the book.%There is only one listed here.%However, you can have as many as you want!
+l1: This is a line for lore (description) of the book.\nYou can have as many of these as you want as well
