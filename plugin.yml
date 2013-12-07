@@ -1,7 +1,37 @@
 name: WelcomeBook
 main: com.github.jwolff52.welcomebook.WelcomeBook
-version: 1.2
+version: 1.0.3
 commands:
     welcomebook:
         description: Gives the player a copy of the WelcomeBook
+        aliases: [wb]
         permission-message: You don't have permission to use WelcomeBook
+permissions:
+    wb.*:
+        description: Gives access to all WelcomeBook Commands
+        children:
+            wb.wb: false
+            wb.config.*: false
+        default: false
+        wb.wb:
+            description: Allows to player to use /welcomebook
+            default: false
+        wb.config.*:
+            description: Gives access to all /wb config commands
+            children:
+                wb.config.add: false
+                wb.config.del: false
+                wb.config.reload: false
+            default: false
+            wb.config.add:
+                description: Gives access to add a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.del:
+                description: Gives access to remove a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.list:
+                description: Gives access to list the pages/lines of lore in the WelcomeBook
+                default: false
+            wb.config.reload:
+                description: Gives access to reload the WelcomeBook config.yml
+                default: false

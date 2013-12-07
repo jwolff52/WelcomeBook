@@ -1,4 +1,6 @@
-package com.github.jwolff52.welcomebook;
+package io.github.jwolff52.welcomebook.utility;
+
+import io.github.jwolff52.welcomebook.WelcomeBook;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.github.jwolff52.welcomebook.WelcomeBook;
 
 public class WelcomeBookListener implements Listener{
 public static WelcomeBook plugin;
