@@ -1,4 +1,6 @@
-package com.github.jwolff52.welcomebook;
+package io.github.jwolff52.welcomebook.utility;
+
+import io.github.jwolff52.welcomebook.WelcomeBook;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.github.jwolff52.welcomebook.WelcomeBook;
 
 public class WelcomeBookListener implements Listener{
 public static WelcomeBook plugin;
@@ -26,7 +27,7 @@ public static WelcomeBook plugin;
 			try {
 				Files.write(WelcomeBook.players.toPath(), plugin.getHasPlayed(), StandardCharsets.UTF_8);
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				Logger.getLogger("Minecraft").severe(e1.toString());
 			}
 			Logger.getLogger("Minecraft").info("WelcomeBook - INFO - "+e.getPlayer().getName()+" given book and added to \"players.txt\"!");
 		}

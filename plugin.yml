@@ -1,7 +1,63 @@
 name: WelcomeBook
-main: com.github.jwolff52.welcomebook.WelcomeBook
-version: 1.2
+main: io.github.jwolff52.welcomebook.WelcomeBook
+version: 2.0.1
 commands:
-    welcomebook:
-        description: Gives the player a copy of the WelcomeBook
-        permission-message: You don't have permission to use WelcomeBook
+    wbgive:
+        description: Gives the player specified a copy of the WelcomeBook if no player is specified the sender of the command recieves the book
+    wbcredits: 
+        description: View the version and contributor(s) to the WelcomeBook Plugin!
+    wbadd: 
+        description: Adds a new page/lore to the WelcomeBook Plugin!
+    wbdel: 
+        description: Deletes a page/lore from the WelcomeBook Plugin!
+    wblist: 
+        description: Lists the pages or lore for the WelcomeBook Plugin!
+    wbreload: 
+        description: Reloads the WelcomeBook Plugin!
+permissions:
+    wb.*:
+        description: Gives access to all WelcomeBook Commands
+        children:
+            wb.self: false
+            wb.other: false
+            wb.credits: false
+            wb.add: false
+            wb.del: false
+            wb.list: false
+            wb.reload: false
+        default: false
+        wb.self:
+            description: Allows the player to give themselves a WelcomeBook
+            default: false
+        wb.other:
+            description: Allows the player to give others a WelcomeBook
+        wb.credits:
+            description: Allows the player to view the plugin creator and version
+            default: true
+        wb.config.add:
+            description: Allows the player to add pages/lore to the config.yml
+            default: false
+<<<<<<< HEAD
+        wb.config.del:
+            description: Allows the player to remove pages/lore from the config.yml
+            default: false
+        wb.config.list:
+            description: Allows the player to view the WelcomeBook
+            default: false
+        wb.reload:
+            description: Allows the player to reload the config.yml
+            default: false
+=======
+            wb.config.add:
+                description: Gives access to add a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.del:
+                description: Gives access to remove a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.list:
+                description: Gives access to list the pages/lines of lore in the WelcomeBook
+                default: false
+            wb.config.reload:
+                description: Gives access to reload the WelcomeBook config.yml
+                default: false
+>>>>>>> 88b07972afd587ab58683aef363e16a148bc8fe9
