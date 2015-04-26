@@ -27,7 +27,7 @@ public static WelcomeBook plugin;
 			try {
 				Files.write(WelcomeBook.players.toPath(), plugin.getHasPlayed(), StandardCharsets.UTF_8);
 			} catch (IOException e1) {
-				e1.printStackTrace();
+				Logger.getLogger("Minecraft").severe(e1.toString());
 			}
 			Logger.getLogger("Minecraft").info("WelcomeBook - INFO - "+e.getPlayer().getName()+" given book and added to \"players.txt\"!");
 		}
