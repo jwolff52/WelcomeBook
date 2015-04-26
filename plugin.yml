@@ -1,6 +1,6 @@
 name: WelcomeBook
 main: io.github.jwolff52.welcomebook.WelcomeBook
-version: 2.0.1
+version: 2.1.2
 commands:
     wbgive:
         description: Gives the player specified a copy of the WelcomeBook if no player is specified the sender of the command recieves the book

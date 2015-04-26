@@ -303,21 +303,21 @@ public class WelcomeBook extends JavaPlugin {
 		if(args[0].equalsIgnoreCase("-p")){
 			pages.add(parseColors(temp));
 			sm.getConfig().set("p"+pages.size(), temp);
-			temp=ChatColor.AQUA+"Page: \"" + ChatColor.RESET + parseColors(temp);
+			temp=ChatColor.AQUA+"Page: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}else if(args[0].equalsIgnoreCase("-l")){
 			lore.add(parseColors(temp));
 			sm.getConfig().set("l"+pages.size(), temp);
-			temp=ChatColor.AQUA+"Lore: \"" + ChatColor.RESET + parseColors(temp);
+			temp=ChatColor.AQUA+"Lore: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}
 		sm.saveConfig();
-		sender.sendMessage(title + temp + ChatColor.AQUA + "\" was added to the book!");
+		sender.sendMessage(title + temp + "\"" + ChatColor.AQUA + " was added to the book!");
 	}
 
 	private void del(CommandSender sender, String[] args) throws NumberFormatException{
 		int cNumber=Integer.valueOf(args[1]);
 		String temp=null;
 		if(args[0].equalsIgnoreCase("-p")){
-			temp= getConfig().getString("p"+args[1]);
+			temp=getConfig().getString("p"+args[1]);
 			for(int x=1;x<cNumber;x++){
 				sm.getConfig().set("p" + x, sm.getConfig().getString("p" + x));
 			}
@@ -325,9 +325,9 @@ public class WelcomeBook extends JavaPlugin {
 				sm.getConfig().set("p"+ x, sm.getConfig().getString("p" + (x + 1)));
 			}
 			sm.getConfig().set("p" + pages.size() + "", null);
-			temp=ChatColor.AQUA+"Page: \"" + ChatColor.RESET + parseColors(temp);
+			temp=ChatColor.AQUA+"Page: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}else if(args[0].equalsIgnoreCase("-l")){
-			temp= getConfig().getString("l"+args[1]);
+			temp=getConfig().getString("l"+args[1]);
 			for(int x=1;x<cNumber;x++){
 				sm.getConfig().set("l" + x, sm.getConfig().getString("l" + x));
 			}
@@ -335,10 +335,10 @@ public class WelcomeBook extends JavaPlugin {
 				sm.getConfig().set("l" + x, sm.getConfig().getString("l" + (x + 1)));
 			}
 			sm.getConfig().set(lore.size() + "", null);
-			temp=ChatColor.AQUA+"Lore: \"" + ChatColor.RESET + parseColors(temp);
+			temp=ChatColor.AQUA+"Lore: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}
 		sm.saveConfig();
-		sender.sendMessage(title+ temp + ChatColor.AQUA + "\" was removed from the book!");
+		sender.sendMessage(title+ temp + "\"" + ChatColor.AQUA + " was removed from the book!");
 	}
 
 	private void list(CommandSender sender, String[] args) throws NumberFormatException{
