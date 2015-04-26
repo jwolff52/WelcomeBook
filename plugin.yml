@@ -37,6 +37,7 @@ permissions:
         wb.config.add:
             description: Allows the player to add pages/lore to the config.yml
             default: false
+<<<<<<< HEAD
         wb.config.del:
             description: Allows the player to remove pages/lore from the config.yml
             default: false
@@ -46,3 +47,17 @@ permissions:
         wb.reload:
             description: Allows the player to reload the config.yml
             default: false
+=======
+            wb.config.add:
+                description: Gives access to add a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.del:
+                description: Gives access to remove a page/line of lore to the WelcomeBook
+                default: false
+            wb.config.list:
+                description: Gives access to list the pages/lines of lore in the WelcomeBook
+                default: false
+            wb.config.reload:
+                description: Gives access to reload the WelcomeBook config.yml
+                default: false
+>>>>>>> 88b07972afd587ab58683aef363e16a148bc8fe9
