@@ -2,6 +2,9 @@
 book_title: 'Welcome to the Server!'
 book_author: 'jwolff52'
 new_line_identifier: '%'
-p1: These are the pages that will be put in the book.%There is only one listed here.%However, you can have as many as you want!
-l1: This is a line for lore (description) of the book.
-l2: You can not use the new_line_identifier for lore.
+pages: 
+  p1: These are the pages that will be put in the book.%There are only two listed here.%However, you can have as many as you want!
+  p2: Insert the new_line_identifier%to create line breaks!
+lore: 
+  l1: This is a line for lore (description) of the book.
+  l2: You can not use the new_line_identifier for lore.

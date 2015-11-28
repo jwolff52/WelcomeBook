@@ -1,4 +1,4 @@
-package io.github.jwolff52.welcomebook.utility;
+package io.github.jwolff52.welcomebook.util;
 
 import java.io.File;
 import java.io.IOException;

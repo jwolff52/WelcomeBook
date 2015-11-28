@@ -1,7 +1,7 @@
 package io.github.jwolff52.welcomebook;
 
-import io.github.jwolff52.welcomebook.utility.SettingsManager;
-import io.github.jwolff52.welcomebook.utility.WelcomeBookListener;
+import io.github.jwolff52.welcomebook.util.SettingsManager;
+import io.github.jwolff52.welcomebook.util.WelcomeBookListener;
 
 import java.io.File;
 import java.io.IOException;
@@ -87,7 +87,7 @@ public class WelcomeBook extends JavaPlugin {
 
 		configNumber=1;
 		while (true) {
-			if (sm.config.getString("p" + configNumber) != null
+			if (sm.config.getString("pages.p" + configNumber) != null
 					&& !sm.config.getString("p" + configNumber)
 							.equalsIgnoreCase("empty")) {
 				pages.add(ChatColor.translateAlternateColorCodes('&',
@@ -110,7 +110,7 @@ public class WelcomeBook extends JavaPlugin {
 		}
 		configNumber = 1;
 		while (true) {
-			if (sm.config.getString("l" + configNumber) != null) {
+			if (sm.config.getString("lore.l" + configNumber) != null) {
 				lore.add(ChatColor.translateAlternateColorCodes('&',
 						getConfig().getString("l" + configNumber)));
 			} else {
@@ -302,11 +302,11 @@ public class WelcomeBook extends JavaPlugin {
 		temp += args[args.length - 1];
 		if(args[0].equalsIgnoreCase("-p")){
 			pages.add(parseColors(temp));
-			sm.getConfig().set("p"+pages.size(), temp);
+			sm.getConfig().set("pages.p"+pages.size(), temp);
 			temp=ChatColor.AQUA+"Page: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}else if(args[0].equalsIgnoreCase("-l")){
 			lore.add(parseColors(temp));
-			sm.getConfig().set("l"+pages.size(), temp);
+			sm.getConfig().set("lore.l"+pages.size(), temp);
 			temp=ChatColor.AQUA+"Lore: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}
 		sm.saveConfig();
@@ -317,24 +317,24 @@ public class WelcomeBook extends JavaPlugin {
 		int cNumber=Integer.valueOf(args[1]);
 		String temp=null;
 		if(args[0].equalsIgnoreCase("-p")){
-			temp=getConfig().getString("p"+args[1]);
+			temp=getConfig().getString("pages.p"+args[1]);
 			for(int x=1;x<cNumber;x++){
-				sm.getConfig().set("p" + x, sm.getConfig().getString("p" + x));
+				sm.getConfig().set("pages.p" + x, sm.getConfig().getString("p" + x));
 			}
 			for(int x=cNumber;x<pages.size();x++){
-				sm.getConfig().set("p"+ x, sm.getConfig().getString("p" + (x + 1)));
+				sm.getConfig().set("pages.p"+ x, sm.getConfig().getString("p" + (x + 1)));
 			}
-			sm.getConfig().set("p" + pages.size() + "", null);
+			sm.getConfig().set("pages.p" + pages.size() + "", null);
 			temp=ChatColor.AQUA+"Page: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}else if(args[0].equalsIgnoreCase("-l")){
-			temp=getConfig().getString("l"+args[1]);
+			temp=getConfig().getString("lore.l"+args[1]);
 			for(int x=1;x<cNumber;x++){
-				sm.getConfig().set("l" + x, sm.getConfig().getString("l" + x));
+				sm.getConfig().set("lore.l" + x, sm.getConfig().getString("l" + x));
 			}
 			for(int x=cNumber;x<lore.size();x++){
-				sm.getConfig().set("l" + x, sm.getConfig().getString("l" + (x + 1)));
+				sm.getConfig().set("lore.l" + x, sm.getConfig().getString("l" + (x + 1)));
 			}
-			sm.getConfig().set(lore.size() + "", null);
+			sm.getConfig().set("lore.l" + lore.size() + "", null);
 			temp=ChatColor.AQUA+"Lore: " + ChatColor.RESET + "\"" + parseColors(temp);
 		}
 		sm.saveConfig();
@@ -362,12 +362,12 @@ public class WelcomeBook extends JavaPlugin {
 			if(args[0].equalsIgnoreCase("-p")){
 				temp = ChatColor.DARK_BLUE + "=== WelcomeBook =========================";
 				for (int x = 0; x < pages.size(); x++) {
-					temp += "\n" + ChatColor.GREEN + "[" + (x + 1) + "] " + ChatColor.RESET + parseColors(sm.getConfig().getString("p" + (x + 1) + ""));
+					temp += "\n" + ChatColor.GREEN + "[" + (x + 1) + "] " + ChatColor.RESET + parseColors(sm.getConfig().getString("pages.p" + (x + 1) + ""));
 				}
 			}else if(args[0].equalsIgnoreCase("-l")){
 				temp = ChatColor.DARK_BLUE + "=== WelcomeBook =========================";
 				for (int x = 0; x < pages.size(); x++) {
-					temp += "\n" + ChatColor.GREEN + "[" + (x + 1) + "] " + ChatColor.RESET + parseColors(sm.getConfig().getString("l" + (x + 1) + ""));
+					temp += "\n" + ChatColor.GREEN + "[" + (x + 1) + "] " + ChatColor.RESET + parseColors(sm.getConfig().getString("lore.l" + (x + 1) + ""));
 				}
 			}
 			sender.sendMessage(temp);
@@ -397,8 +397,8 @@ public class WelcomeBook extends JavaPlugin {
 		configNumber=1;
 		pages = new ArrayList<String>();
 		while (true) {
-			if (sm.config.getString("p" + configNumber) != null) {
-				pages.add(ChatColor.translateAlternateColorCodes('&', getConfig().getString("p" + configNumber)));
+			if (sm.config.getString("pages.p" + configNumber) != null) {
+				pages.add(ChatColor.translateAlternateColorCodes('&', getConfig().getString("pages.p" + configNumber)));
 			} else {
 				break;
 			}
@@ -419,11 +419,9 @@ public class WelcomeBook extends JavaPlugin {
 		configNumber = 1;
 		lore = new ArrayList<String>();
 		while (true) {
-			if (sm.config.getString("l" + configNumber) != null
-					&& !sm.config.getString("l" + configNumber)
-							.equalsIgnoreCase("empty")) {
+			if (sm.config.getString("lore.l" + configNumber) != null) {
 				lore.add(ChatColor.translateAlternateColorCodes('&',
-						getConfig().getString("l" + configNumber)));
+						getConfig().getString("lore.l" + configNumber)));
 			} else {
 				break;
 			}
